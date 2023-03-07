@@ -25,6 +25,9 @@
   <link rel="stylesheet" href="{{asset('admin/plugins/daterangepicker/daterangepicker.css')}}">
   <!-- summernote -->
   <link rel="stylesheet" href="{{asset('admin/plugins/summernote/summernote-bs4.min.css')}}">
+  
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+
   @yield('head')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
