@@ -6,6 +6,7 @@
     <thead>
     <tr>
         <th style="width: 50px">ID</th>
+        <th>Hình ảnh</th>
         <th>Tên Sản Phẩm</th>
         <th>Danh Mục</th>
         <th>Giá Gốc</th>
@@ -19,6 +20,9 @@
         @foreach($products as $key => $product)
         <tr>
             <td>{{ $product->id }}</td>
+            <td><a href="{{$product->thumb}}"target="_blank">
+                <img src="{{$product->thumb}}" width="50px">
+            </a></td>
             <td>{{ $product->name }}</td>
             <td>{{ $product->menu->name }}</td>
             <td>{{ $product->price }}</td>

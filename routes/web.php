@@ -6,6 +6,9 @@ use \App\Http\Controllers\Admin\MainController;
 use \App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\UploadController;
+use App\Http\Controllers\Client\CartController;
+use App\Http\Controllers\Client\HomeController;
+use App\Http\Controllers\Client\ProductDetailController;
 use App\Http\Services\Product\UploatService;
 
 /*
@@ -19,7 +22,7 @@ use App\Http\Services\Product\UploatService;
 |
 */
 
-Route::get('/',[LoginController::class , 'index'])->name('login');
+Route::get('login',[LoginController::class , 'index'])->name('login');
 Route::post('admin/users/login/store',[LoginController::class , 'store']);
 
 Route::middleware(['auth'])->group(function (){
@@ -48,9 +51,16 @@ Route::middleware(['auth'])->group(function (){
         Route::post('upload/service',[UploadController::class,'store']);
        
     });
-Route::get('/home',function(){
-    return view('client.home');
-});
+Route::get('/',[HomeController::class,'index']);
+Route::get('/shop',[HomeController::class,'store']);
+Route::get('product/{product}',[ProductDetailController::class,'index']);
+
+Route::post('/add-cart', [CartController::class, 'index']);
+
+Route::get('carts', [CartController::class, 'show']);
+
+Route::post('/upload-cart', [CartController::class, 'update']);
+
     
 });
     

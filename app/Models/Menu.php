@@ -16,4 +16,9 @@ class Menu extends Model
         'content',
         'active',
     ];
+    // public function getParents(){
+    //     return Menu::whereNull('parent_id')->with('childrens')->get(['id','name']) ;
+    // }
+
+
 }

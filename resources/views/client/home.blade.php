@@ -65,22 +65,25 @@
             </div>
         </div>
         <div class="row product__filter">
+
+            @foreach ($product as $item)
             <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
                 <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="client/img/product/product-1.jpg">
+                    <div class="product__item__pic set-bg" data-setbg="{{$item->thumb}}">
                         {{-- <span class="label">New</span> --}}
                         <ul class="product__hover">
                             <li><a href="#"><img src="client/img/icon/heart.png" alt=""></a></li>
                         </ul>
                     </div>
                     <div class="product__item__text">
-                        <h6>Piqué Biker Jacket</h6>
+                        <h6>{{$item->name}}</h6>
                         <a href="#" class="add-cart">+ Add To Cart</a>
-                        <h5>$67.24</h5>
+                        <br>
+                        <h5>${{$item->price}} </h5>
                     </div>
                 </div>
             </div>
-            
+            @endforeach
         </div>
     </div>
 </section>
