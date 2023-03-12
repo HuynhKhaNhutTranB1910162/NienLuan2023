@@ -86,16 +86,16 @@
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="product__item">
                             <div class="product__item__pic set-bg" data-setbg="{{$item->thumb}}">
+                                {{-- {{$item->price_sale !==0 ? {!!<span class="label">sale</span> !!} : {!!<span class="label">New</span> !!}}} --}}
                                 {{-- <span class="label">New</span> --}}
                                 <ul class="product__hover">
                                     <li><a href="product/{{$item->id}}"><img src="client/img/icon/heart.png" alt=""></a></li>
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6>{{$item->name}}</h6>
-                                <a href="" class="add-cart">+ Add To Cart</a>
+                                <h5>{{$item->name}}</h5>
                                 <br>
-                                <h5>${{$item->price}} </h5>
+                                <h5>${{$item->price_sale !==NULL ? $item->price_sale : $item->price}} </h5>
                             </div>
                         </div>
                     </div>

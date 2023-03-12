@@ -22,6 +22,7 @@ class CartController extends Controller
         if ($result === false) {
             return redirect()->back();
         }
+        return redirect('/carts');
     }
 
     /**
@@ -35,7 +36,7 @@ class CartController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store()
     {
         //
     }
@@ -72,17 +73,17 @@ class CartController extends Controller
         return redirect('/carts');
     }
 
-    // public function remove($id = 0)
-    // {
-    //     $this->cartService->remove($id);
+    public function remove($id = 0)
+    {
+        $this->cartService->remove($id);
 
-    //     return redirect('/carts');
-    // }
+        return redirect('/carts');
+    }
 
-    // public function addCart(Request $request)
-    // {
-    //     $this->cartService->addCart($request);
+    public function addCart(Request $request)
+    {
+        $this->cartService->addCart($request);
 
-    //     return redirect()->back();
-    // }
+        return redirect()->back();
+    }
 }

@@ -52,7 +52,7 @@
                         <input type="text" name="num_product" value="1">
                     <span class="fa fa-angle-down inc qtybtn"></span></div>
                 </div>
-                <button type="submit" class="btn btn-primary"> add to cart</button>
+                <a href="/client/carts/add"><button type="submit" class="primary-btn" > add to cart</button></a>
             </div>
         </div>
         <input type="hidden" name="product_id" value="{{ $products->id }}">

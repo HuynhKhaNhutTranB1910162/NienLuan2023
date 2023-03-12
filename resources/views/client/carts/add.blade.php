@@ -20,7 +20,7 @@
     </div>
 </section>
 <!-- Breadcrumb Section End -->
-
+@include('admin.users.alert')
 <!-- Shopping Cart Section Begin -->
 <form action="" method="POST">
     
@@ -45,7 +45,7 @@
                         <tbody>
                             @foreach ($products as $product)
                             @php  
-                                $price = $product->price_sale !==0 ? $product->price_sale : $product->price;
+                                $price = $product->price_sale !==Null ? $product->price_sale : $product->price;
                                 $priceEnd = $price * $carts[$product->id];
                                 $total += $priceEnd;
                             @endphp
@@ -67,7 +67,7 @@
                                     </div>
                                 </td>
                                 <td class="cart__price">$ {{$priceEnd}}</td>
-                                <td class="cart__close"><i class="fa fa-close"></i></td>
+                                <td class="cart__close"><a href="/carts/delete/{{$product->id}}"><i class="fa fa-close"></i></a></td>
                             </tr>
                             @endforeach
                             
@@ -81,12 +81,12 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="continue__btn">
-                            <a href="#">Continue Shopping</a>
+                            <a href="/shop">Continue Shopping</a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="continue__btn update__btn">
-                           <input type="submit" value="uploast" formaction="/upload-cart"> <i class="fa fa-spinner"></i> 
+                           <input type="submit" value="uploast" formaction="/upload-cart" class="primary-btn"> 
                             @csrf
                         </div>
                     </div>
@@ -96,10 +96,30 @@
                 <div class="cart__total">
                     <h6>Cart total</h6>
                     <ul>
-                        {{-- <li>Subtotal <span>$ 169.50</span></li> --}}
-                        <li>Total <span>$ {{$total}}</span></li>
+                        <li>Tổng tiền <span>$ {{$total}}</span></li>
+                        <li>Thông tin khách hàng</li>
+                        <li><div class="checkout__input">
+                            <input type="text" name="name" placeholder="Tên khách Hàng">
+                            </div>
+                        </li>
+                        <li><div class="checkout__input">
+                            <input type="text" name="phone" placeholder="Số Điện Thoại">
+                            </div>
+                        </li>
+                        <li><div class="checkout__input">
+                            <input type="text" name="address" placeholder="Địa Chỉ Giao Hàng">
+                            </div>
+                        </li>
+                        <li><div class="checkout__input">
+                            <input type="text" name="email" placeholder="Email Liên Hệ">
+                            </div>
+                        </li>
+                        <li><div class="checkout__input">
+                            <input type="text" name="content" placeholder="Yêu cầu khi đặt hàng">
+                            </div>
+                        </li>
                     </ul>
-                    <a href="#" class="primary-btn">Proceed to checkout</a>
+                    <button class="primary-btn" type="submit">Đặt Hàng</button>
                 </div>
             </div>
         </div>

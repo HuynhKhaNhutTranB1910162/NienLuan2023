@@ -72,14 +72,13 @@
                     <div class="product__item__pic set-bg" data-setbg="{{$item->thumb}}">
                         {{-- <span class="label">New</span> --}}
                         <ul class="product__hover">
-                            <li><a href="#"><img src="client/img/icon/heart.png" alt=""></a></li>
+                            <li><a href="product/{{$item->id}}"><img src="client/img/icon/heart.png" alt=""></a></li>
                         </ul>
                     </div>
                     <div class="product__item__text">
-                        <h6>{{$item->name}}</h6>
-                        <a href="#" class="add-cart">+ Add To Cart</a>
+                        <h5>{{$item->name}}</h5>
                         <br>
-                        <h5>${{$item->price}} </h5>
+                        <h5>${{$item->price_sale !==NULL ? $item->price_sale : $item->price}} </h5>
                     </div>
                 </div>
             </div>
