@@ -142,4 +142,16 @@ class CartService
             $query->select('id', 'name', 'thumb');
         }])->get();
     }
+
+    public function delete($request)
+{
+    $customer = Customer::where('id', $request->input('id'))->first();
+    if ($customer) {
+        $customer->delete();
+        return true;
+    }
+
+    return false;
+}
+
 }

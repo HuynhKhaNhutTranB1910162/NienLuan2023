@@ -34,9 +34,9 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>Product</th>
-                                <th>Quantity</th>
-                                <th>Total</th>
+                                <th>Sản phẩm</th>
+                                <th>Số lượng</th>
+                                <th>Tổng Tiền</th>
                                 <th></th>
                                 <th></th>
                             </tr>
@@ -81,7 +81,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="continue__btn">
-                            <a href="/shop">Continue Shopping</a>
+                            <a href="/shop">Quay lại Shop</a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6">
@@ -94,7 +94,8 @@
             </div>
             <div class="col-lg-4">
                 <div class="cart__total">
-                    <h6>Cart total</h6>
+                    <h5 style="text-align: center; font-weight: bold;">Đơn Hàng</h5>
+                    <br>
                     <ul>
                         <li>Tổng tiền <span>$ {{$total}}</span></li>
                         <li>Thông tin khách hàng</li>

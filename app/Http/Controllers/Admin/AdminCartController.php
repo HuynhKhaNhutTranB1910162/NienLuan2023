@@ -75,16 +75,18 @@ class AdminCartController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    // public function destroy(Request $request)
-    // {
-    //     $result = $this->cartService->delete($request);
-    //     if ($result) {
-    //         return response()->json([
-    //             'error' => false,
-    //             'message' => 'Xóa thành công sản phẩm'
-    //         ]);
-    //     }
+    public function destroy(Request $request)
+    {
+        $result = $this->cart->delete($request);
+        if ($result) {
+            return response()->json([
+                'error' => false,
+                'message' => 'Xóa thành công danh mục'
+            ]);
+        }
 
-    //     return response()->json([ 'error' => true ]);
-    // }
+        return response()->json([
+            'error' => true
+        ]);
+    }
 }

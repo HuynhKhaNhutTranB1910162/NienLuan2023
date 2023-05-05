@@ -74,7 +74,7 @@ class helper{
         foreach ($menus as $key => $menu) {
             if ($menu->parent_id == $parent_id) {
                 $html .= '
-                    
+                        <br>
                         <a href="/danh-muc/' . $menu->id . '-' . Str::slug($menu->name, '-') . '.html">
                             ' . $menu->name . '
                         </a>';
@@ -82,9 +82,11 @@ class helper{
                 unset($menus[$key]);
 
                 if (self::isChild($menus, $menu->id)) {
-                    $html .= '<ul class="nice-scroll">';
+                    // $html .= '<ul class="nice-scroll">';
+                    $html .= '<li>';
                     $html .= self::menus($menus, $menu->id);
-                    $html .= '</ul>';
+                    $html .= '</li>';
+                    // $html .= '</ul>';
                 }
 
             }

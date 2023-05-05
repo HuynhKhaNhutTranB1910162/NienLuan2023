@@ -41,18 +41,17 @@
                                     <div class="card-body">
                                         <div class="shop__sidebar__categories">
                                             {{-- {!! \App\Helpers\helper::menusi($menus)!!} --}}
-                                            <ul class="nice-scroll">
-                                                <li>{!! \App\Helpers\helper::menusi($menus)!!}</li>
-                                                
-                                                {{-- <li><a href="#">Women (20)</a></li>
-                                                <li><a href="#">Bags (20)</a></li> 
+                                            {{-- <ul class="nice-scroll">
+                                                <li><a href="#">Men (20)</a></li>
+                                                <li><a href="#">Women (20)</a></li>
+                                                <li><a href="#">Bags (20)</a></li>
                                                 <li><a href="#">Clothing (20)</a></li>
                                                 <li><a href="#">Shoes (20)</a></li>
                                                 <li><a href="#">Accessories (20)</a></li>
                                                 <li><a href="#">Kids (20)</a></li>
                                                 <li><a href="#">Kids (20)</a></li>
-                                                <li><a href="#">Kids (20)</a></li> --}}
-                                            </ul>
+                                                <li><a href="#">Kids (20)</a></li>
+                                            </ul> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -83,6 +82,7 @@
                     </div>
                 </div>
                 <div class="row">
+                    @if ($product->count() > 0)
                     @foreach ($product as $item)
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="product__item">
@@ -101,6 +101,10 @@
                         </div>
                     </div>
                     @endforeach
+
+                    @else
+                    <div> <h3 style="color: red">Không tìm thấy sản phẩm nào !! Vui lòng tìm lại</h3></div>
+                    @endif
                 </div>
                 <div class="row">
                     <div class="col-lg-12">

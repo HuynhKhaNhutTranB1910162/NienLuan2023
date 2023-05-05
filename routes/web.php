@@ -11,6 +11,7 @@ use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Client\ProductDetailController;
 use App\Http\Services\Product\UploatService;
 use \App\Http\Controllers\Admin\AdminCartController;
+use App\Models\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +54,7 @@ Route::middleware(['auth'])->group(function (){
 
         Route::get('/orther',[AdminCartController ::class,'index']);
         Route::get('/customers/view/{customer}',[AdminCartController ::class,'show']);
+        Route::DELETE('/customers/destroy', [AdminCartController::class, 'destroy']);
 
 
        
@@ -60,6 +62,7 @@ Route::middleware(['auth'])->group(function (){
 Route::get('/',[HomeController::class,'index']);
 Route::get('/home',[HomeController::class,'index']);
 Route::get('/shop',[HomeController::class,'store']);
+// Route::get('danh-muc/{id}-{slug}.html', [MenuController::class, 'index']);
 Route::get('product/{product}',[ProductDetailController::class,'index']);
 
 Route::post('/add-cart', [CartController::class, 'index']);
@@ -68,6 +71,10 @@ Route::post('/upload-cart', [CartController::class, 'update']);
 Route::get('carts/delete/{id}', [CartController::class, 'remove']);
 
 Route::post('carts', [CartController::class, 'addCart']);
+
+Route::get('/search',[ProductDetailController::class,'search']);
+
+
 
 
     

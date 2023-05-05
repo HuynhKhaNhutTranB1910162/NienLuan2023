@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use App\Http\Services\Product\ProductService;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductDetailController extends Controller
@@ -73,4 +74,15 @@ class ProductDetailController extends Controller
     {
         //
     }
+
+    public function search(Request $request)
+    {
+
+        $product = Product::Where('name', 'LIKE', '%' . $request->searchs . '%')
+            ->orwhere('price', 'LIKE', '%' . $request->searchs . '%')
+
+            ->get();
+        return view('client.products.search' ,compact('product'));
+    }
+
 }
